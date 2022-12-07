@@ -29,13 +29,7 @@ describe ShoppingCart do
         shopping_cart.items << cart_item
       end
 
-      receipt = shopping_cart.output
-
-      expect(receipt).to include(expected_result[0])
-      expect(receipt).to include(expected_result[1])
-      expect(receipt).to include(expected_result[2])
-      expect(receipt).to include(expected_result[3])
-      expect(receipt).to include(expected_result[4])
+      expect(shopping_cart.output).to eq(expected_result)
     end
   end
 
@@ -64,17 +58,11 @@ describe ShoppingCart do
         shopping_cart.items << cart_item
       end
 
-      receipt = shopping_cart.output
-
-      expect(receipt).to include(expected_result[0])
-      expect(receipt).to include(expected_result[1])
-      expect(receipt).to include(expected_result[2])
-      expect(receipt).to include(expected_result[3])
+      expect(shopping_cart.output).to eq(expected_result)
     end
   end
 
   context "Input 3" do
-
     let(:input_3) do
       [
         { category: "other", name: "bottle of perfume", price: 27.99,  quantity: 1, imported: true},
@@ -84,16 +72,14 @@ describe ShoppingCart do
       ]
     end
 
-    
-
     let(:expected_result) do
       [
         "1 imported bottle of perfume: 32.19",
         "1 bottle of perfume: 20.89",
         "1 packet of headache pills: 9.75",
-        "3 imported boxes of chocolates: 35.45",
-        "Sales Taxes: 7.80",
-        "Total: 98.28"
+        "3 imported boxes of chocolates: 35.55",
+        "Sales Taxes: 7.90",
+        "Total: 98.38"
       ]
     end
 
@@ -106,14 +92,7 @@ describe ShoppingCart do
         shopping_cart.items << cart_item
       end
 
-      receipt = shopping_cart.output
-
-      expect(receipt).to include(expected_result[0])
-      expect(receipt).to include(expected_result[1])
-      expect(receipt).to include(expected_result[2])
-      expect(receipt).to include(expected_result[3])
-      expect(receipt).to include(expected_result[4])
-      expect(receipt).to include(expected_result[5])
+      expect(shopping_cart.output).to eq(expected_result)
     end
   end
 end

@@ -1,5 +1,5 @@
 class Product
-  CATEGORIES = ["books", "food", "medical", "other"]
+  CATEGORIES = %w[books food medical other]
 
   attr_accessor :category, :name, :price, :imported
 
